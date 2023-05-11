@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search IP Address</title>
+</head>
+<body>
+  <h1>Search IP Address</h1>
+  
+  <form method="POST" action="/cidrapp/search">
+    <input type="text" name="ip_address" placeholder="Enter IP Address" required>
+    <button type="submit">Search</button>
+  </form>
+  
+  {% if result %}
+    <h2>Search Results:</h2>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Ip Address</th>
+          <th>Cidr range match</th>
+          <th>Service Tag Name</th>
+          <th>Region</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ result.ip_address }}</td>
+          <td>{{ result.cidr_range }}</td>
+          <td>{{ result.service_tag_name }}</td>
+          <td>{{ result.region or "N/A" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  {% endif %}
+</body>
+</html>
