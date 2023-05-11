@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List of IP Addresses</title>
+</head>
+<body>
+  <h1>List of IP Addresses</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Ip Address</th>
+        <th>Cidr range match</th>
+        <th>Service Tag Name</th>
+        <th>Region</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for entry in ip_table %}
+      <tr>
+        <td>{{ entry.ip_address }}</td>
+        <td>{{ entry.cidr_range }}</td>
+        <td>{{ entry.service_tag_name }}</td>
+        <td>{{ entry.region or "N/A" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
